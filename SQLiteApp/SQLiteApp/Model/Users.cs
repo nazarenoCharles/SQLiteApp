@@ -16,5 +16,12 @@ namespace SQLiteApp.Model
         public string Password { get; set; }
         public string Address { get; set; }
 
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
     }
 }

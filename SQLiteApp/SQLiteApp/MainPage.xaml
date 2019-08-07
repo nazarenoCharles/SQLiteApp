@@ -7,7 +7,7 @@
              x:Class="SQLiteApp.MainPage">
 
     <StackLayout VerticalOptions="CenterAndExpand" Padding="5">
-        <Label Text="Register Here!" FontSize="48" HorizontalTextAlignment="Center"/>
+        <Label Text="Register Here!" FontSize="26" HorizontalTextAlignment="Center"/>
         <Entry x:Name="FirstName" Placeholder="First Name"/>
         <Entry x:Name="LastName" Placeholder="Last Name"/>
         <Entry x:Name="Email" Placeholder="Email"/>
@@ -17,15 +17,12 @@
         <DatePicker x:Name="DOB"/>
         <Label Text="Address"/>
         <Editor x:Name="Address"/>
-
-
-
-        <StackLayout Orientation="Horizontal">
+        <StackLayout Orientation="Horizontal" Margin="0, 0, 0, 15" Padding="5" >
             <Button Text="Sign Up" Clicked="Signed_Clicked"/>
             <Button Text="Show" Clicked="Show_Clicked"/>
         </StackLayout>
         
-        <Label Text="Already have account? Sign In" TextColor="Blue"/>
+        <Label Text="Already have account? Edi Mag sign in ka" TextColor="Blue"/>
     </StackLayout>
 
 </ContentPage>

@@ -22,15 +22,15 @@ namespace SQLiteApp.Database
             return (from t in _sqlconnection.Table<Registration>()
                     select t).ToList();
         }
-        public Registration GetRegistration(int id)
+        public Registration GetUser(int id)
         {
             return _sqlconnection.Table<Registration>().FirstOrDefault(t => t.Id == id);
         }
-        public void AddRegistration(Registration registration)
+        public void AddUser(Registration registration)
         {
             _sqlconnection.Insert(registration);
         }
-        public void DeleteRegistration(int id)
+        public void DeleteUser(int id)
         {
             _sqlconnection.Delete<Registration>(id);
         }

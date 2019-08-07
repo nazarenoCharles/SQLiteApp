@@ -27,21 +27,21 @@ namespace SQLiteApp
         {
             reg = new Registration();
             userDb = new UserDb();
-
+            reg.Id++;
             reg.FirstName = FirstName.Text;
             reg.LastName = LastName.Text;
             reg.Dob = DOB.Date.ToString();
             reg.Email = Email.Text;
             reg.Password = Password.Text;
             reg.Address = Address.Text;
-            
-            
+
+            DisplayAlert("Registration", "Thanks for Registration", "Ok");
+            userDb.AddUser(reg);
             }
-        }
-        private async void Show_Clicked(object sender, EventArgs e)
-        { 
-            await Navigation.PushAsync(new UserList());
- 
+
+        private void Show_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new UserList());
         }
     }
 }

@@ -3,6 +3,7 @@ using SQLiteApp.Database;
 using SQLiteApp.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,20 +16,37 @@ namespace SQLiteApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserList : ContentPage
     {
-        public SQLiteConnection conn;
-        public Registration regmodel;
+        private ObservableCollection<UserDb> userItem = new ObservableCollection<UserDb>();
+        public UserDb userDb;
+        public Registration reg;
         public UserList()
         {
             InitializeComponent();
-            conn = DependencyService.Get<ISqlite>().GetConnection();
-            conn.CreateTable<Registration>();
-            DisplayDetails();
+
+            userDb = new UserDb();
+            var users = userDb.GetUsers();
+            myListView.ItemsSource = users;   
         }
 
-        private void DisplayDetails()
+        private async void Delete_Clicked(object sender, EventArgs e)
         {
-            var userDetails = (from x in conn.Table<Registration>() select x).ToList();
-            myListView.ItemsSource = userDetails;
+            var menuItem = sender as MenuItem;
+            var dataModel = menuItem.CommandParameter as UserDb;
+            var viewModel = menuItem.CommandParameter as Registration;
+            bool confirm = await DisplayAlert("Delete Contact", "Are you sure to delete this?", "Yes", "No");
+            if (confirm == true)
+            {
+                this.userItem.Remove(dataModel);
+                userDb.DeleteUser(viewModel.Id);
+            }
+        }
+
+        private void MyListView_Refreshing(object sender, EventArgs e)
+        {
+            userDb = new UserDb();
+            var users = userDb.GetUsers();
+            myListView.ItemsSource = users;
+            myListView.EndRefresh();
         }
     }
 }

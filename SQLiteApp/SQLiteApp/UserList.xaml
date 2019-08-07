@@ -8,11 +8,20 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Horizontal">
-                <ListView x:Name="myListView" HasUnevenRows="True">
+                <ListView x:Name="myListView" HasUnevenRows="True"
+                          IsPullToRefreshEnabled="True"
+                          Refreshing="MyListView_Refreshing">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding FirstName}"        
-                                      Detail="{Binding Address}"/>
+                          <ViewCell>
+                            <StackLayout Padding="5">
+                                    <Label Text="{Binding FullName}" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding Address}" HorizontalOptions="Center"/>
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+                              <MenuItem Clicked="Delete_Clicked" CommandParameter="{Binding .}" Text="Delete"/>
+                            </ViewCell.ContextActions>
+                          </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
