@@ -24,6 +24,7 @@
             <Button Text="Sign Up" Clicked="Signed_Clicked"/>
             <Button Text="Show" Clicked="Show_Clicked"/>
         </StackLayout>
+        
         <Label Text="Already have account? Sign In" TextColor="Blue"/>
     </StackLayout>
 
