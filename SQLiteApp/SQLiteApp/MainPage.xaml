@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SQLiteApp.MainPage">
+
+    <StackLayout VerticalOptions="CenterAndExpand" Padding="5">
+        <Label Text="Register Here!" FontSize="48" HorizontalTextAlignment="Center"/>
+        <Entry x:Name="FirstName" Placeholder="First Name"/>
+        <Entry x:Name="LastName" Placeholder="Last Name"/>
+        <Entry x:Name="Email" Placeholder="Email"/>
+        <Entry x:Name="Password" Placeholder="Password" IsPassword="True"/>
+        <Entry Placeholder="Confirm Password" IsPassword="True"/>
+        <Label  Text="Date Of Birth"/>
+        <DatePicker x:Name="DOB"/>
+        <Label Text="Address"/>
+        <Editor x:Name="Address"/>
+
+
+
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Sign Up" Clicked="Signed_Clicked"/>
+            <Button Text="Show" Clicked="Show_Clicked"/>
+        </StackLayout>
+        <Label Text="Already have account? Sign In" TextColor="Blue"/>
+    </StackLayout>
+
+</ContentPage>
