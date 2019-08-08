@@ -23,9 +23,7 @@ namespace SQLiteApp
         {
             InitializeComponent();
 
-            userDb = new UserDb();
-            var users = userDb.GetUsers();
-            myListView.ItemsSource = users;   
+            List_Refresh();
         }
 
         private async void Delete_Clicked(object sender, EventArgs e)
@@ -39,14 +37,19 @@ namespace SQLiteApp
                 this.userItem.Remove(dataModel);
                 userDb.DeleteUser(viewModel.Id);
             }
+            List_Refresh();
         }
 
         private void MyListView_Refreshing(object sender, EventArgs e)
         {
+            List_Refresh();
+            myListView.EndRefresh();
+        }
+        void List_Refresh()
+        {
             userDb = new UserDb();
             var users = userDb.GetUsers();
             myListView.ItemsSource = users;
-            myListView.EndRefresh();
         }
     }
 }

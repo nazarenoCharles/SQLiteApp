@@ -18,7 +18,7 @@ namespace SQLiteApp.Database
             _sqlconnection.CreateTable<Registration>();
         }
         public IEnumerable<Registration> GetUsers()
-        {
+        { 
             return (from t in _sqlconnection.Table<Registration>()
                     select t).ToList();
         }

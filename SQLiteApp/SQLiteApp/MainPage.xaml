@@ -10,13 +10,13 @@
         <Label Text="Register Here!" FontSize="26" HorizontalTextAlignment="Center"/>
         <Entry x:Name="FirstName" Placeholder="First Name"/>
         <Entry x:Name="LastName" Placeholder="Last Name"/>
-        <Entry x:Name="Email" Placeholder="Email"/>
+        <Entry x:Name="Email" Placeholder="Email" Keyboard="Email"/>
         <Entry x:Name="Password" Placeholder="Password" IsPassword="True"/>
-        <Entry Placeholder="Confirm Password" IsPassword="True"/>
+        <Entry x:Name="ConfirmPass" Placeholder="Confirm Password" IsPassword="True"/>
         <Label  Text="Date Of Birth"/>
         <DatePicker x:Name="DOB"/>
         <Label Text="Address"/>
-        <Editor x:Name="Address"/>
+        <Entry x:Name="Address"/>
         <StackLayout Orientation="Horizontal" Margin="0, 0, 0, 15" Padding="5" >
             <Button Text="Sign Up" Clicked="Signed_Clicked"/>
             <Button Text="Show" Clicked="Show_Clicked"/>

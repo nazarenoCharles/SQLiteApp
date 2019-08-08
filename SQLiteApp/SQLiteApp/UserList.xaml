@@ -15,9 +15,13 @@
                         <DataTemplate>
                           <ViewCell>
                             <StackLayout Padding="5">
-                                    <Label Text="{Binding FullName}" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding FullName}" HorizontalOptions="Center"
+                                           FontSize="18"
+                                           FontAttributes="Bold"/>
                                     <Label Text="{Binding Address}" HorizontalOptions="Center"/>
-                            </StackLayout>
+                                    <Label Text="{Binding Dob}" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding Email}" HorizontalOptions="Center"/>
+                                </StackLayout>
                             <ViewCell.ContextActions>
                               <MenuItem Clicked="Delete_Clicked" CommandParameter="{Binding .}" Text="Delete"/>
                             </ViewCell.ContextActions>
